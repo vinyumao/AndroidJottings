@@ -10,8 +10,9 @@
 
 4. onResume里获取不到 控件的坐标的，最好在onWindowFocusChanged方法里获取,如:
 ```
-int [] location = new int[2];
-    imgView.getLocationOnScreen(location);
-    Log.i("onWindowFocusChanged",
-	    "x:y " + location[0]+ ":" + location[1]);
-```
+public void onWindowFocusChanged(boolean hasFocus) {
+		super.onWindowFocusChanged(hasFocus);
+		int [] location = new int[2];
+		img.getLocationOnScreen(location);
+		Log.i("onWindowFocusChanged", "img x:y " + location[0]+ ":" + location[1]);
+	}```
