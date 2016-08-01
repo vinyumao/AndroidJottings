@@ -9,7 +9,9 @@
 3. 布局文件根布局 宽高最好用match_parent,如 listview gridview 的item 布局 否则有可能出现显示不全的情况 例如listview 嵌套 gridView 虽然重写了gridview 但是 如果gridview的item根布局没有match_parent 会出现item显示不全的情况
 
 4. onResume里获取不到 控件的坐标的，最好在onWindowFocusChanged方法里获取
-如：
-    int [] location = new int[2];
-    img.getLocationOnScreen(location);
-    Log.i("onWindowFocusChanged", "x:y " + location[0]+ ":" + location[1]);
+```
+int [] location = new int[2];
+    imgView.getLocationOnScreen(location);
+    Log.i("onWindowFocusChanged",
+	    "x:y " + location[0]+ ":" + location[1]);
+```
