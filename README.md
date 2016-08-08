@@ -22,3 +22,5 @@ public void onWindowFocusChanged(boolean hasFocus) {
     而 minSdkVersion 就是现在系统运行的最低版本。
     最有趣的是 targetSdkVersion,argetSdkVersion 是 Android 提供向前兼容的主要依据，在应用的 targetSdkVersion 没有更新之前系统不会应用最新的行为变化。也就是说你现在的系统是23 但是你项目的targetSdkVersion是22。你的apk将不会拥有最新23系统的最新特性。而是以版本22的形式运行。
     例子:我在做6.0权限判断的时候，发现app在安装后，某些6.0敏感权限竟然默认全都是允许的，比如Camera。后来发现原来我的targetSdkVersion是22,而6.0系统的新权限机制是23版本的，改回后就正常了
+
+6.关于补间动画，执行之后并未改变View的真实布局。例如一个button执行TranslateAnimation 后，点击移动后的按钮是无法触发事件的。只有点button原来的地方才会响应事件
