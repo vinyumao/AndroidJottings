@@ -26,3 +26,7 @@ public void onWindowFocusChanged(boolean hasFocus) {
 6.关于补间动画，执行之后并未改变View的真实布局。例如一个button执行TranslateAnimation 后，点击移动后的按钮是无法触发事件的。只有点button原来的地方才会响应事件
 
 7.AnimationDrawable的start()方法不能在Activity的onCreate方法中调运，因为AnimationDrawable还未完全附着到window上，所以最好的调运时机是onWindowFocusChanged()方法中
+
+8.关于List等相关适配器再异步加载完之后必须要用一个集合去接收，然后用适配器中集合addAll数据，才能完成刷新，不能直接赋值给适配器中的集合，因为 “被观察的对象引用不能变” --文哥给的回答
+
+9.隐藏手机号码中的四位数 ：tel..replaceAll("(\\d{3})\\d{4}(\\d{4})","$1****$2")
